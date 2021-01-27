@@ -1,7 +1,7 @@
 Dim stRep,scriptRep,meshLabRep,ext
 
-stRep = "D:\testDir\anim_objs"                                                                                       'Name of the directory where the .OBJs are
-outRep = "C:\Users\tadeo\OneDrive\Documents\EdAR\GitHub\edar-unity-core\Assets\DougHoustonAssets\final_anim_objs"                                                                                       'Name of the directory where you want to output .OBJs
+stRep = "~\anim_objs"                                                                                       'Name of the directory where the .OBJs are
+outRep = "~\final_anim_objs"                                                                                       'Name of the directory where you want to output .OBJs
 ext1 = "obj"
 
 Dim oFSO,oFl
