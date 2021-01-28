@@ -3,7 +3,14 @@ Automation of Meshlab and PyMOL.
 ## Overview
 [Meshlab](https://www.meshlab.net/#download) is an open source, portable, and extensible system for the processing and editing of unstructured 3D triangular meshes. PyMOL is a [paid-for](https://pymol.org/2/buy.html?q=buy) or [open source](https://github.com/schrodinger/pymol-open-source) molecular visualisation program. See [TheNerdJedi's original repo](https://github.com/TheNerdJedi/MeshlabAuto) for an introduction to automating MeshLab. This fork extends the functionality of MeshLabAuto by including a template for the automated extraction of 3D meshes from PyMOL, which can then be fed into scripts based on the original MeshLabAuto code.
 ### Automating PyMOl mesh extraction
-PyMOL can export 3D models in a range of formats, but the .wrl format carries colour information that is useful for further rendering. Therefore, `.pml` scripts can be used to extract many 3D models from PyMOL in quick succession. This is achieved via PyMOL's inbuilt ability to parse Python using the `exec()` command, which allows for for looping combined with string interpolation to repeatedly edit and export 3D models:
+PyMOL can export 3D models in a range of formats, but the .wrl format carries colour information that is useful for further rendering. Therefore, `.pml` scripts can be used to extract many 3D models from PyMOL in quick succession.You can place lumps of Python code within Python code blocks:
+``` pml
+python
+readme_string = "Meshlab can work with {}"
+print(readme_string.format("PyMOL!"))
+python end
+```
+Alternatively, my approach utilitsed PyMOL's `exec()` command to combine string interpolation and for loops for the export of multiple 3D models.
 #### Example .pml file for outputting 3D meshes
 ``` Python
 load my-simulation_aligned.pdb # A .pdb file containing individual 'frames' of a molecular simulation.
